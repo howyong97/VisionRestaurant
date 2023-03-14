@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <title>@ViewData["Title"] - Vision Restaurant</title>
+    <link rel="stylesheet" href="css/site.css" asp-append-version="true">
+
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="Index.html">Home</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Contact Us.html">Contact Us</a>
+        <a href="About Us.html">About Us</a>
+    </div>
+    <article>
+        @RenderBody()
+    </article>
+
+    <footer>
+        <p>Footer</p>
+    </footer>
+</body>
+</html>

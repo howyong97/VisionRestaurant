@@ -1,0 +1,51 @@
+body {
+    background-color: yellow;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+h2 {
+    color: black;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #0000FF;
+}
+
+    .topnav a {
+        float: left;
+        color: #FFA07A;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+        .topnav a:hover {
+            background-color: #FFA07A;
+            color: red;
+        }
+
+        .topnav a.active {
+            background-color: #ADD8E6;
+            color: black;
+        }
+        .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
+        color: white;
+        text-align: center;
+        }
