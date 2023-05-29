@@ -13,6 +13,15 @@
 
 <h2>Welcome to Vision Restaurant</h2>
 <body>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h2>Hello @UserManager.GetUserName(User)</h2>
+        if (User.IsInRole("Administrator"))
+        {
+            <h2> admin users can see this!</h2>
+        }
+    }
+
     <img src="~/image/bg1.png" class="cookchef"/>
     <div class="desc">
         <p>This is the restaurant that does not exists.</p>
@@ -20,16 +29,7 @@
     
 
 </body>
-@if (SignInManager.IsSignedIn(User))
-{
-    <h2>Hello @UserManager.GetUserName(User)</h2>
-    if (User.IsInRole("Administrator"))
-    {
-        <h2>Hello Admin.</h2>
-    }
 
-
-}
 
 
 
