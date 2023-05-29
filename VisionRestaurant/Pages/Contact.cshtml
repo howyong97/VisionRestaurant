@@ -2,6 +2,48 @@
 @model VisionRestaurant.Pages.ContactModel
 @{
 	ViewData["Title"] = "Contact";
-	<h1>Contact Us</h1>
-	<article><p>This is the contact page</p></article>
 }
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-1.6.4.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <form method="post">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 80px">Name:</td>
+                <td><input type="text" name="Name" /></td>
+            </tr>
+            <tr>
+                <td>Subject:</td>
+                <td><input type="text" name="Subject" /></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="Email" /></td>
+            </tr>
+            <tr>
+                <td valign="top">Body:</td>
+                <td><textarea cols="20" rows="10" name="Body"></textarea></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Send" asp-page-handler="Submit" /></td>
+            </tr>
+        </table>
+        <br />
+        <span style="color:green">@Model.Message</span>
+    </form>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({ selector: 'textarea', width: 300 });
+    </script>
+
+</body>
+</html>

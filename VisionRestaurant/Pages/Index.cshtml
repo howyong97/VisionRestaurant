@@ -4,6 +4,24 @@
     ViewData["Title"] = "Home page";
 }
 
-<h1>Welcome to Vision Restaurant</h1>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Identity
+@using VisionRestaurant.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<h2>Welcome to Vision Restaurant</h2>
 <article><p>This is the restaurant that does not exists.</p></article>
+@if (SignInManager.IsSignedIn(User))
+{
+    <h2>Hello @UserManager.GetUserName(User)</h2>
+    if (User.IsInRole("Administrator"))
+    {
+        <h2>Hello Admin.</h2>
+    }
+
+
+}
+
+
 
