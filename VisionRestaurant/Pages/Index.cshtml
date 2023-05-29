@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<link rel="stylesheet" href="~/css/index.css" asp-append-version="true"/>
 
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @using Microsoft.AspNetCore.Identity
@@ -11,7 +12,14 @@
 @inject UserManager<ApplicationUser> UserManager
 
 <h2>Welcome to Vision Restaurant</h2>
-<article><p>This is the restaurant that does not exists.</p></article>
+<body>
+    <img src="~/image/bg1.png" class="cookchef"/>
+    <div class="desc">
+        <p>This is the restaurant that does not exists.</p>
+    </div>
+    
+
+</body>
 @if (SignInManager.IsSignedIn(User))
 {
     <h2>Hello @UserManager.GetUserName(User)</h2>

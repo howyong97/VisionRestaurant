@@ -46,3 +46,6 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+.back {
+    background-image: url('img/bg1.png');
+}

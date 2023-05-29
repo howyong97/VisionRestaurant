@@ -39,7 +39,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            
+            @{
+                var imagepath = @"image\" + item.ID + ".png";
+            }
+            <td>
+                <img src="@imagepath">
+            </td>
+
         </tr>
 }
     </tbody>
