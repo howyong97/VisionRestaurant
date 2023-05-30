@@ -18,7 +18,9 @@
         <h2>Hello @UserManager.GetUserName(User)</h2>
         if (User.IsInRole("Administrator"))
         {
-            <h2> admin users can see this!</h2>
+            <h2>Admin Panel</h2>
+            <a class="admin nav" asp-area="" asp-page="/Foods/Index">Food Menu Editing</a>
+            
         }
     }
 
