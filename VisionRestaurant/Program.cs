@@ -2,13 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using VisionRestaurant.Data;
-using System.Security.Principal;
+using VisionRestaurant.Model;
 using Stripe;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+//builder.Services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
 builder.Services.AddDbContext<VisionRestaurantContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VisionRestaurantContext") ?? throw new InvalidOperationException("Connection string 'VisionRestaurantContext' not found.")));
 
@@ -22,7 +24,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = new PathString("/Account/Login");
     options.AccessDeniedPath = new PathString("/Account/AccessDenied");
     options.LogoutPath = new PathString("/Index");
-    //services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
+    
 });
 
 //define the admin policy

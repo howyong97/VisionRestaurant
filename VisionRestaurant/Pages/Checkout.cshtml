@@ -4,9 +4,12 @@
 	ViewData["Title"] = "Checkout";
 	
 }
+@using VisionRestaurant.Data
+@using Microsoft.Extensions.Options
+@inject IOptions<StripeSettings> Stripe
 
 <h1>Checkout</h1>
-<form method="post">
+<form asp-route-amount="@Model.AmountPayable" method="post">
     <table class="table">
         <thead>
             <tr>
@@ -36,6 +39,7 @@
             }
         </tbody>
     </table>
+    <div>Total = @Model.Total.ToString("C")</div>
     <button type="submit" asp-page-handler="Buy">Buy</button>
 </form>
 

@@ -39,12 +39,12 @@ namespace VisionRestaurant.Pages
                 "ON Food.ID = BasketItems.ID " +
                 "WHERE BasketID = {0}", customer.BasketID
                 ).ToList();
-            //Total = 0;
-            //foreach (var item in Items)
-            //{
-                //Total += (item.Quantity * item.Price);
-            //}
-            //AmountPayable = (long)(Total * 100);
+            Total = 0;
+            foreach (var item in Items)
+            {
+                Total += (item.Quantity * item.Price);
+            }
+            AmountPayable = (long)(Total * 100);
 
         }
         public async Task<IActionResult> OnPostBuyAsync()
