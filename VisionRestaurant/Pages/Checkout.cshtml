@@ -1,0 +1,41 @@
+﻿@page
+@model VisionRestaurant.Pages.CheckoutModel
+@{
+	ViewData["Title"] = "Checkout";
+	
+}
+
+<h1>Checkout</h1>
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                var subtotal = item.Price * item.Quantity;
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price.ToString("C")</td>
+
+                    <td>
+                        <button type="submit">+</button>
+                        <button type="submit">-</button>
+                    </td>
+                    <td>@item.Quantity</td>
+                    <td>@subtotal.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" asp-page-handler="Buy">Buy</button>
+</form>
+

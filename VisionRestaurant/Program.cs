@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using VisionRestaurant.Data;
 using System.Security.Principal;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = new PathString("/Account/Login");
     options.AccessDeniedPath = new PathString("/Account/AccessDenied");
     options.LogoutPath = new PathString("/Index");
+    //services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
 });
 
 //define the admin policy
@@ -44,6 +46,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+//StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["sk_test_51NDSQtHDMFKa0vnJI7WQJkRtfNS6d1N522NHT9YpmZCLfNTt9ltfAVTtpcSkxr1yzOoKaptgetkOUnr6psHV5Ja800jKpNCj5h"];
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

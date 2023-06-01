@@ -5,11 +5,12 @@
 	<h1>The Menu</h1>
 
 }
+<form method="post">
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Food[0].Title)
+                @Html.DisplayNameFor(model => model.Food[0].Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Food[0].Genre)
@@ -25,7 +26,7 @@
         {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Genre)
@@ -39,8 +40,16 @@
             <td>
                 <img src="@imagepath">
             </td>
+                <td>
+                    <button type="submit" asp-page-handler="Buy"
+                        asp-route-itemID="@item.ID">
+                        Buy
+                    </button>
+                </td>
+
 
         </tr>
 }
     </tbody>
 </table>
+</form>
